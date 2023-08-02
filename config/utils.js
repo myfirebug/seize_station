@@ -1,5 +1,10 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const NODE_ENV = process.env.NODE_ENV;
+const SITE = process.env.SIYE;
+// 所有站点
+const sites = ["default"];
+// 站点类型
+const siteTypes = ["web", "mobile"];
 const isDev = NODE_ENV === "development";
 const isProd = NODE_ENV === "production";
 /**
@@ -62,4 +67,7 @@ exports.tools = {
   isDev,
   isProd,
   fmtDate,
+  SITE,
+  sites,
+  siteTypes,
 };

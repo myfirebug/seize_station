@@ -43,9 +43,10 @@
     "webpackbar": "^5.0.2"
   },
   "scripts": {
-    "start": "npm run dev",
-    "dev": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
+    "dev:default-web": "cross-env NODE_ENV=development SIYE=default-web webpack serve --config ./config/webpack.dev.js",
+    "build:default-web": "cross-env NODE_ENV=production SIYE=default-web webpack --config ./config/webpack.prod.js",
+    "dev:default-mobile": "cross-env NODE_ENV=development SIYE=default-mobile webpack serve --config ./config/webpack.dev.js",
+    "build:default-mobile": "cross-env NODE_ENV=production SIYE=default-mobile webpack --config ./config/webpack.prod.js",
     "prepare": "husky install",
     "commit": "cz"
   },

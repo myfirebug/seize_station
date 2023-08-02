@@ -3,21 +3,38 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackBar = require("webpackbar");
 const path = require("path");
 const { tools } = require("./utils");
-const { getStyleLoader, isDev, fmtDate } = tools;
+const { getStyleLoader, isDev, fmtDate, SITE, siteTypes, sites } = tools;
+
+const current = SITE.split("-");
+
+if (
+  current.length !== 2 ||
+  !sites.includes(current[0]) ||
+  !siteTypes.includes(current[1])
+) {
+  console.log("站点不存在，或者站点类型错误");
+  process.exit();
+}
+
+const config = require(`../src/projects/${current[0]}/config.js`);
+
+console.log(config, "config");
 
 module.exports = {
   stats: "errors-only",
   // 入口相对路径
-  entry: "./src/main.tsx",
+  entry: `./src/projects/${current[0]}/${current[1]}/main.tsx`,
   // 输出
   output: {
     // 文件的输出路径，绝对路由
     // __dirname nodejs的变量，代表当前文件的文件夹目录
-    path: isDev ? undefined : path.resolve(__dirname, "../dist"),
+    path: isDev
+      ? undefined
+      : path.resolve(__dirname, `../dist/${current[0]}/${current[1]}`),
     // 入口打包输出的文件名
     filename: isDev
-      ? "static/js/[name].js"
-      : "static/js/[name].[contenthash:10].js",
+      ? `static/js/[name].js`
+      : `static/js/[name].[contenthash:10].js`,
     // chunk文件名称
     chunkFilename: "static/js/[name].[contenthash:10].chunk.js",
     // 图片，字体，通过type：asset处理的资源全名方式
@@ -89,9 +106,20 @@ module.exports = {
       // 模板：以public/index.html文件创建新的html文件
       // 新的文件特点：结构和原来一致，自动引入打包出的资源
       template: path.resolve(__dirname, "../public/index.html"),
-      title: "我是标题",
+      config: `<script>window.CONFIG=${JSON.stringify(config)}</script>`,
+      // 标题
+      title: config.title,
+      // 描述
+      description: config.description,
+      // 关键词
+      keywords: config.keywords,
+      // loading
+      injectLoading: config.injectLoading,
       // 代码更新时间
       buildTime: fmtDate(new Date(), "yyyy-MM-dd hh:mm:ss"),
+      inject: {
+        config: `<script>window.CONFIG=${JSON.stringify(config)}</script>`,
+      },
     }),
     new WebpackBar(),
   ],
