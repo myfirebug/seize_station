@@ -18,8 +18,6 @@ if (
 
 const config = require(`../src/projects/${current[0]}/config.js`);
 
-console.log(config, "config");
-
 module.exports = {
   stats: "errors-only",
   // 入口相对路径

@@ -32,9 +32,10 @@ const cssRootVar = (
   const root = selector
     ? document.querySelector(selector) || document.createElement("style")
     : document.createElement("style");
+  console.log(root, "root");
   root.innerHTML = formatCssVar(themeJson);
   if (!root.getAttribute("data-theme")) {
-    root.setAttribute("data-theme", selector || "theme");
+    root.setAttribute("data-theme", "theme");
     const header = document.head || document.getElementsByName("head")[0];
     if (!header) return;
     header.appendChild(root);
@@ -45,12 +46,14 @@ const cssRootVar = (
  * @param theme 换肤名称
  */
 export function setTheme(theme: IThemeName) {
-  document.documentElement.setAttribute("data-theme", theme);
-  isSupportCssVar
-    ? cssRootVar(themes[theme])
-    : cssVars({
-        watch: true,
-        variables: themes[theme],
-        onlyLegacy: false,
-      });
+  if (isSupportCssVar) {
+    cssRootVar(themes[theme]);
+  } else {
+    document.documentElement.setAttribute("data-theme", theme);
+    cssVars({
+      watch: true,
+      variables: themes[theme],
+      onlyLegacy: false,
+    });
+  }
 }
