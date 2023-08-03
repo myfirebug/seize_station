@@ -11,6 +11,8 @@ module.exports = {
   developmentApi: "",
   // 正式环境接口地址
   productionApi: "",
+  // 主题
+  theme: "theme02",
   // 移动端底部tabbar
   mobileTabBar: [
     {
