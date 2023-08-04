@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require("path");
 const NODE_ENV = process.env.NODE_ENV;
 const SITE = process.env.SIYE;
 // 所有站点
@@ -25,6 +26,16 @@ function getStyleLoader(pre) {
       },
     },
     pre,
+    pre === "sass-loader" && {
+      loader: "sass-resources-loader",
+      options: {
+        resources: [
+          path.resolve(__dirname, "../src/assets/scss/config.scss"),
+          path.resolve(__dirname, "../src/assets/scss/function.scss"),
+          path.resolve(__dirname, "../src/assets/scss/mixins.scss"),
+        ],
+      },
+    },
   ].filter(Boolean);
 }
 
