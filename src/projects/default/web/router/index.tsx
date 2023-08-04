@@ -1,5 +1,5 @@
 import React, { Suspense, FC } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import routes, { IRoute } from "./routes";
 import { lazyLoad } from "@src/components";
 
@@ -22,7 +22,7 @@ const PrivateRoute: FC<IPrivateRoute> = ({ children, auth, title }) => {
  * @returns
  */
 const routeTree = (datas: IRoute[]) => {
-  return datas.map(({ path, children, modulePath, title, auth }) => {
+  return datas.map(({ path, children, modulePath, title, auth, redirect }) => {
     return children && children.length ? (
       <Route
         path={path}
@@ -34,6 +34,14 @@ const routeTree = (datas: IRoute[]) => {
         key={modulePath}
       >
         {routeTree(children)}
+        {redirect ? (
+          <Route path={path} element={<Navigate to={redirect} />}></Route>
+        ) : (
+          <Route
+            path={path}
+            element={<Navigate to={children[0].path as string} />}
+          ></Route>
+        )}
       </Route>
     ) : (
       <Route
@@ -51,11 +59,11 @@ const routeTree = (datas: IRoute[]) => {
 
 function RoutesView() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Suspense>
         <Routes>{routeTree(routes)}</Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

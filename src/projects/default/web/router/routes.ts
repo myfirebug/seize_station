@@ -7,7 +7,10 @@ export interface IRoute extends NonIndexRouteObject {
   modulePath: string;
   // 是否需要token
   auth: boolean;
+  // 子路由
   children?: IRoute[];
+  // 访问的兄弟路由不存在时，重定向到该路由
+  redirect?: string;
 }
 
 const routerDatas: IRoute[] = [
@@ -26,6 +29,7 @@ const routerDatas: IRoute[] = [
       {
         path: "/home",
         title: "首页",
+        redirect: "/home",
         modulePath: "default/web/home",
         auth: false,
       },
@@ -36,6 +40,12 @@ const routerDatas: IRoute[] = [
         auth: true,
       },
     ],
+  },
+  {
+    path: "*",
+    title: "404",
+    modulePath: "default/web/notFound",
+    auth: false,
   },
 ];
 
