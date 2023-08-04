@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { themeList, IThemeName, setTheme } from "@core/theme";
+import Routes from "./router";
 import "./index.scss";
 const config = require("../config");
 
@@ -21,7 +22,7 @@ function App() {
           </option>
         ))}
       </select>
-      <h1>default-web1</h1>
+      <Routes />
     </div>
   );
 }
