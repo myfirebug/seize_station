@@ -1,10 +1,5 @@
 // tab 类型
-export enum ITab {
-  ask,
-  share,
-  job,
-  good,
-}
+export type ITab = "ask" | "share" | "job" | "good" | "dev" | "";
 
 // 主题活动
 export interface ITopicItem {

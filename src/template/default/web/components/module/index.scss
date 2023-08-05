@@ -1,0 +1,12 @@
+@include b(module) {
+  background-color: var(--gray-1);
+  border-radius: 3px;
+  overflow: hidden;
+  @include e(header) {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    background-color: var(--gray-3);
+  }
+}

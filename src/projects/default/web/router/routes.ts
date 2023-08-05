@@ -15,12 +15,6 @@ export interface IRoute extends NonIndexRouteObject {
 
 const routerDatas: IRoute[] = [
   {
-    path: "/login",
-    title: "登录",
-    modulePath: "default/web/login",
-    auth: false,
-  },
-  {
     path: "/",
     title: "",
     modulePath: "default/web/layout",
@@ -39,13 +33,25 @@ const routerDatas: IRoute[] = [
         modulePath: "default/web/my",
         auth: true,
       },
+      {
+        path: "/about",
+        title: "关于",
+        modulePath: "default/web/about",
+        auth: false,
+      },
+      {
+        path: "/login",
+        title: "登录",
+        modulePath: "default/web/login",
+        auth: false,
+      },
+      {
+        path: "*",
+        title: "404",
+        modulePath: "default/web/notFound",
+        auth: false,
+      },
     ],
-  },
-  {
-    path: "*",
-    title: "404",
-    modulePath: "default/web/notFound",
-    auth: false,
   },
 ];
 

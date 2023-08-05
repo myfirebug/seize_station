@@ -29,11 +29,7 @@ function getStyleLoader(pre) {
     pre === "sass-loader" && {
       loader: "sass-resources-loader",
       options: {
-        resources: [
-          path.resolve(__dirname, "../src/assets/scss/config.scss"),
-          path.resolve(__dirname, "../src/assets/scss/function.scss"),
-          path.resolve(__dirname, "../src/assets/scss/mixins.scss"),
-        ],
+        resources: [path.resolve(__dirname, "../src/assets/scss/index.scss")],
       },
     },
   ].filter(Boolean);

@@ -12,7 +12,7 @@ module.exports = {
   // 正式环境接口地址
   productionApi: "",
   // 主题
-  theme: "theme02",
+  theme: "theme01",
   // 移动端底部tabbar
   mobileTabBar: [
     {
@@ -21,5 +21,5 @@ module.exports = {
     },
   ],
   // 每个站点的loading不一样
-  injectLoading: `<div>loading</div>`,
+  injectLoading: ``,
 };

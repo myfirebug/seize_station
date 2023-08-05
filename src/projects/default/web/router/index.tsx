@@ -1,5 +1,5 @@
-import React, { Suspense, FC } from "react";
-import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
+import React, { Suspense, FC, memo } from "react";
+import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import routes, { IRoute } from "./routes";
 import { lazyLoad } from "@src/components";
 
@@ -57,14 +57,19 @@ const routeTree = (datas: IRoute[]) => {
   });
 };
 
-function RoutesView() {
-  return (
-    <HashRouter>
-      <Suspense>
-        <Routes>{routeTree(routes)}</Routes>
-      </Suspense>
-    </HashRouter>
-  );
-}
+const RoutesView = memo(
+  () => {
+    return (
+      <BrowserRouter>
+        <Suspense>
+          <Routes>{routeTree(routes)}</Routes>
+        </Suspense>
+      </BrowserRouter>
+    );
+  },
+  (a, b) => {
+    return true;
+  }
+);
 
 export default RoutesView;

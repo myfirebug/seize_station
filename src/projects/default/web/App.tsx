@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { themeList, IThemeName, setTheme } from "@core/theme";
 import Routes from "./router";
-import "./index.scss";
 const config = require("../config");
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState<IThemeName>(config.theme);
   return (
-    <div className="app">
+    <>
       <select
+        style={{ position: "fixed", zIndex: 101 }}
         value={currentTheme}
         onChange={(e) => {
           const value = e.target.value as IThemeName;
@@ -23,7 +23,7 @@ function App() {
         ))}
       </select>
       <Routes />
-    </div>
+    </>
   );
 }
 
