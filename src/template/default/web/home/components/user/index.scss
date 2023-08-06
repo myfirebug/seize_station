@@ -1,0 +1,21 @@
+@include b(user) {
+  .cms-module__body {
+    padding: 0 15px 15px 15px;
+  }
+  .button {
+    height: 36px;
+    line-height: 36px;
+    margin-top: 15px;
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid var(--primary-color);
+    transition: all 0.25s ease 0s;
+    &:hover {
+      background-color: var(--primary-color);
+      color: var(--gray-1);
+    }
+  }
+}

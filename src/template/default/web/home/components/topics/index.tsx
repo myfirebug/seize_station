@@ -6,6 +6,7 @@ import { useTopic } from "@core/hook";
 import { Loading } from "@src/components";
 import "./index.scss";
 import { ITab } from "@src/service";
+import { NoData } from "@src/components";
 interface ITopics {}
 
 const Topics: FC<ITopics> = () => {
@@ -65,6 +66,7 @@ const Topics: FC<ITopics> = () => {
       }
     >
       {topicsLoading ? <Loading type={1} text="加载中..." /> : null}
+      {!topics.length && <NoData />}
 
       {topics.map((item) => (
         <div className="cms-topics__item" key={item.id}>

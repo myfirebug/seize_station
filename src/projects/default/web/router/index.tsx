@@ -1,5 +1,5 @@
 import React, { Suspense, FC, memo } from "react";
-import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import routes, { IRoute } from "./routes";
 import { lazyLoad } from "@src/components";
 
@@ -59,12 +59,12 @@ const routeTree = (datas: IRoute[]) => {
 
 const RoutesView = memo(
   () => {
+    const location = useLocation();
+    console.log(location, "location");
     return (
-      <BrowserRouter>
-        <Suspense>
-          <Routes>{routeTree(routes)}</Routes>
-        </Suspense>
-      </BrowserRouter>
+      <Suspense>
+        <Routes>{routeTree(routes)}</Routes>
+      </Suspense>
     );
   },
   (a, b) => {

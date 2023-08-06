@@ -9,7 +9,15 @@ const Module = memo((props: IModule) => {
   const { title, children, style, className } = props;
   return (
     <div className={`cms-module ${className || ""}`} style={style}>
-      {title && <div className="cms-module__header">{title}</div>}
+      {title && (
+        <div
+          className={`cms-module__header ${
+            typeof title === "string" ? "is-bold" : ""
+          }`}
+        >
+          {title}
+        </div>
+      )}
       <div className="cms-module__body">{children}</div>
     </div>
   );

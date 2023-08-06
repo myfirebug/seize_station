@@ -8,5 +8,8 @@
     align-items: center;
     padding: 0 20px;
     background-color: var(--gray-3);
+    @include when(bold) {
+      font-weight: bold;
+    }
   }
 }

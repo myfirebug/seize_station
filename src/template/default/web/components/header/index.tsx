@@ -6,7 +6,6 @@ interface IHeader {}
 
 const Header = memo((props: IHeader) => {
   const location = useLocation();
-  console.log(location, "location");
   const [navs] = useState([
     {
       path: "/home",

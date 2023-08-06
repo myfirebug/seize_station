@@ -1,5 +1,4 @@
 import React, { FC, HtmlHTMLAttributes, ReactNode } from "react";
-import { Outlet } from "react-router-dom";
 
 interface ILayout extends HtmlHTMLAttributes<HTMLDivElement> {
   paddingTop?: number | string;
@@ -7,6 +6,7 @@ interface ILayout extends HtmlHTMLAttributes<HTMLDivElement> {
   Header?: ReactNode;
   Footer?: ReactNode;
   Sidder?: ReactNode;
+  children: ReactNode;
 }
 
 const Layout: FC<ILayout> = ({
@@ -16,6 +16,7 @@ const Layout: FC<ILayout> = ({
   paddingTop,
   mainMinHeight,
   className,
+  children,
 }) => {
   return (
     <div className="cms-layout" style={{ paddingTop: paddingTop }}>
@@ -25,7 +26,7 @@ const Layout: FC<ILayout> = ({
         style={{ minHeight: mainMinHeight }}
       >
         {Sidder}
-        <Outlet />
+        {children}
       </div>
       {Footer}
     </div>

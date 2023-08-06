@@ -7,7 +7,7 @@
   height: 50px;
   padding: 0 20px;
   line-height: 50px;
-  background-color: var(--gray-8);
+  background-color: var(--primary-color);
   @include e(content) {
     display: flex;
     justify-content: space-between;
