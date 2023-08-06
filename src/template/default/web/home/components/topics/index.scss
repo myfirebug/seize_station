@@ -8,7 +8,7 @@
     &:hover,
     &.is-active {
       background-color: var(--primary-color);
-      color: var(--gray-1);
+      color: var(--white);
       border-radius: 3px;
     }
   }
@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    border-bottom: 1px solid var(--gray-4);
+    border-bottom: 1px solid var(--border-color);
     .user-avatar {
       width: 30px;
       height: 30px;
@@ -45,16 +45,15 @@
       margin-left: 10px;
       border-radius: 3px;
       line-height: 1;
-      color: var(--gray-4);
-      background-color: var(--gray-6);
+      color: var(--white);
+      background-color: var(--label-background-color);
       &.is-active {
-        color: var(--gray-1);
         background-color: var(--primary-color);
       }
     }
     .visits {
       position: relative;
-      color: var(--gray-6);
+      color: var(--gray-font-color);
       &:before {
         content: "/";
         padding: 0 3px;
@@ -64,7 +63,7 @@
       flex: 1;
       margin: 0 10px;
       padding: 10px 0;
-      color: var(--gray-9);
+      color: var(--html-font-color);
       text-decoration: none;
       transition: all 0.25s ease 0s;
       &:hover {
@@ -73,7 +72,7 @@
     }
     .create-time {
       font-size: 12px;
-      color: var(--gray-6);
+      color: var(--gray-font-color);
     }
   }
   .cms-module__body {

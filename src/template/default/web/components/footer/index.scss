@@ -1,6 +1,6 @@
 @include b(footer) {
   padding: 20px;
-  background-color: var(--gray-1);
+  background-color: var(--module-background-color);
   @include e(content) {
     width: 90%;
     max-width: 1400px;

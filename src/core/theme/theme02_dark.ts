@@ -1,5 +1,5 @@
 // 主题02
-export const theme02 = {
+export const theme02_dark = {
   /* ------------------切换白天夜间模式不变的变量start------------------ */
   // 主色
   "--primary-color": "#cb0d08",
@@ -9,18 +9,18 @@ export const theme02 = {
 
   /* ------------------切换白天夜间模式变化的变量start------------------ */
   // html背景颜色
-  "--html-background-color": "#d9d9d9",
+  "--html-background-color": "#000",
   // html字体颜色
-  "--html-font-color": "#262626",
+  "--html-font-color": "#fff",
   // 模块背景颜色
-  "--module-background-color": "#fff",
+  "--module-background-color": "#333",
   // 模块头部背景颜色
-  "--module-hd-background-color": "#f5f5f5",
+  "--module-hd-background-color": "#222",
   // 标签背景颜色
   "--label-background-color": "#bfbfbf",
   // 灰色字体颜色
   "--gray-font-color": "#bfbfbf",
   // 边框颜色
-  "--border-color": "#f0f0f0",
+  "--border-color": "#222",
   /* ------------------切换白天夜间模式变化的变量end------------------ */
 };

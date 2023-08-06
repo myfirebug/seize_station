@@ -11,10 +11,10 @@
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
-  color: var(--gray-10);
+  color: var(--html-font-color);
   font-size: 14px;
   min-height: 100vh;
-  background-color: var(--gray-5);
+  background-color: var(--html-background-color);
 }
 
 /* Sections

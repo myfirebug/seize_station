@@ -1,5 +1,5 @@
 @include b(module) {
-  background-color: var(--gray-1);
+  background-color: var(--module-background-color);
   border-radius: 3px;
   overflow: hidden;
   @include e(header) {
@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     padding: 0 20px;
-    background-color: var(--gray-3);
+    background-color: var(--module-hd-background-color);
     @include when(bold) {
       font-weight: bold;
     }

@@ -15,9 +15,8 @@ $width: 30px;
     bottom: 0;
     top: 0;
     right: 0;
-    background-color: var(--gray-1);
+    // background-color: var(--white);
     opacity: 0.8;
-    filter: blur(10px);
   }
   @include e(body) {
     position: relative;
@@ -47,7 +46,7 @@ $width: 30px;
       width: $width;
       height: $width;
       border: 3px solid transparent;
-      border-left-color: var(--gray-1);
+      border-left-color: var(--white);
       border-radius: 50%;
       box-sizing: border-box;
       animation: ui-loading-rotate 1s infinite linear;
