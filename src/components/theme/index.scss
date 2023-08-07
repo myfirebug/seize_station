@@ -1,0 +1,53 @@
+@include b(theme) {
+  display: flex;
+  height: 100%;
+  @include e(select) {
+    position: relative;
+    height: 100%;
+    padding: 0 10px;
+    cursor: pointer;
+    &:hover {
+      .bd {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .option,
+    .hd {
+      width: 16px;
+      height: 16px;
+      margin-top: 14px;
+      border: 2px solid var(--white);
+      border-radius: 3px;
+    }
+    .bd {
+      transition: all 0.25s ease 0s;
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: top center;
+      position: absolute;
+      top: 40px;
+      left: 0;
+      padding: 10px;
+      border-radius: 3px;
+      background: var(--module-background-color);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      .option:first-child {
+        margin: 0;
+      }
+    }
+  }
+  @include e(mode) {
+    width: 30px;
+    height: 30px;
+    margin-top: 7px;
+    cursor: pointer;
+    background: url("./assets/sun.png") center center no-repeat;
+    background-size: 70% 70%;
+    transition: all 0.25s ease 0s;
+    @include when(moon) {
+      background: url("./assets/moon.png") center center no-repeat;
+      background-size: 70% 70%;
+    }
+  }
+}

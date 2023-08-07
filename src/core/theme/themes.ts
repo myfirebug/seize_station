@@ -23,15 +23,44 @@ export type IThemeName =
   | "theme03_dark"
   | "theme04_dark";
 
-export const themeList: IThemeName[] = [
-  "theme01",
-  "theme02",
-  "theme03",
-  "theme04",
-  "theme01_dark",
-  "theme02_dark",
-  "theme03_dark",
-  "theme04_dark",
+export interface IThemeItem {
+  name: IThemeName;
+  color: string;
+}
+
+export const themeList: IThemeItem[] = [
+  {
+    name: "theme01",
+    color: theme01["--primary-color"],
+  },
+  {
+    name: "theme02",
+    color: theme02["--primary-color"],
+  },
+  {
+    name: "theme03",
+    color: theme03["--primary-color"],
+  },
+  {
+    name: "theme04",
+    color: theme04["--primary-color"],
+  },
+  {
+    name: "theme01_dark",
+    color: theme01_dark["--primary-color"],
+  },
+  {
+    name: "theme02_dark",
+    color: theme02_dark["--primary-color"],
+  },
+  {
+    name: "theme03_dark",
+    color: theme03_dark["--primary-color"],
+  },
+  {
+    name: "theme04_dark",
+    color: theme04_dark["--primary-color"],
+  },
 ];
 
 export const themes: IThemes = {

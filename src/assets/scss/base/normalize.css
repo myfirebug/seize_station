@@ -15,6 +15,7 @@ html {
   font-size: 14px;
   min-height: 100vh;
   background-color: var(--html-background-color);
+  transition: all 0.25s ease 0s;
 }
 
 /* Sections

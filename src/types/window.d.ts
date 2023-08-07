@@ -1,3 +1,4 @@
+import { IThemeName } from "@src/core/theme";
 interface Config {
   // 站点名称
   sitename: string;
@@ -15,8 +16,11 @@ interface Config {
   mobileTabBar: { name: string; path: string }[];
   // 每个站点的loading不一样
   injectLoading: string;
+  theme: IThemeName;
 }
 
-interface Window {
-  CONFIG: Config;
+declare global {
+  interface Window {
+    CONFIG: Config;
+  }
 }

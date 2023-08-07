@@ -15,7 +15,7 @@ $width: 30px;
     bottom: 0;
     top: 0;
     right: 0;
-    // background-color: var(--white);
+    background-color: var(--module-background-color);
     opacity: 0.8;
   }
   @include e(body) {

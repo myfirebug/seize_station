@@ -1,6 +1,7 @@
 @include b(footer) {
   padding: 20px;
   background-color: var(--module-background-color);
+  transition: all 0.25s ease 0s;
   @include e(content) {
     width: 90%;
     max-width: 1400px;

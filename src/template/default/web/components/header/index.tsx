@@ -1,5 +1,6 @@
 import React, { memo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Theme } from "@src/components";
 import "./index.scss";
 
 interface IHeader {}
@@ -41,17 +42,20 @@ const Header = memo((props: IHeader) => {
             alt="cnode"
           />
         </div>
-        <nav className="cms-header__right">
-          {navs.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={location.pathname === item.path ? "is-active" : ""}
-            >
-              {item.name}
-            </Link>
-          ))}
-        </nav>
+        <div className="cms-header__right">
+          <nav>
+            {navs.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={location.pathname === item.path ? "is-active" : ""}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+          <Theme />
+        </div>
       </div>
     </header>
   );
