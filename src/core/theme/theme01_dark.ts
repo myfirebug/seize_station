@@ -20,6 +20,8 @@ export const theme01_dark = {
   "--label-background-color": "#bfbfbf",
   // 灰色字体颜色
   "--gray-font-color": "#bfbfbf",
+  // 深灰字体颜色
+  "--dark-gray-font-color": "#999",
   // 边框颜色
   "--border-color": "#222",
   /* ------------------切换白天夜间模式变化的变量end------------------ */

@@ -1,0 +1,35 @@
+@include b(reply) {
+  @include e(item) {
+    .card {
+      display: flex;
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border-color);
+      transition: all 0.25s ease 0s;
+      p {
+        margin: 0;
+      }
+      .cms-avatar {
+        margin-right: 10px;
+      }
+      .user-info {
+        padding-bottom: 10px;
+      }
+      img {
+        max-width: 100%;
+      }
+      a {
+        color: var(--dark-gray-font-color);
+        text-decoration: none;
+        margin-right: 10px;
+        transition: all 0.25s ease 0s;
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+      .content {
+        flex: 1;
+        overflow: hidden;
+      }
+    }
+  }
+}

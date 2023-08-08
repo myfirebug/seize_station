@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { ITopicItem, API, ITab } from "@service/index";
+import { ITopicItem, API, ITab, ITopicDetail } from "@service/index";
 export interface ITopicsParams {
   // 页数
   page: number;
@@ -52,10 +52,48 @@ export function useTopic() {
     }
     return str;
   }, []);
+
+  // 主题详情数据
+  const [topicDetail, setTopicDetail] = useState<ITopicDetail>({
+    id: "",
+    author_id: "",
+    tab: "",
+    content: "",
+    title: "",
+    last_reply_at: "",
+    good: false,
+    top: false,
+    reply_count: 0,
+    visit_count: 0,
+    create_at: "",
+    author: {
+      loginname: "",
+      avatar_url: "",
+    },
+    replies: [],
+  });
+  const [topicDetailLoading, setTopicDetailLoading] = useState(false);
+
+  const getTopic = useCallback((id: string) => {
+    setTopicDetailLoading(true);
+    API.topicService
+      .getTopic(id)
+      .then((data) => {
+        setTopicDetail(data);
+        setTopicDetailLoading(false);
+      })
+      .catch(() => {
+        setTopicDetailLoading(false);
+      });
+  }, []);
+
   return {
     topics,
     topicsLoading,
     getTopics,
+    topicDetail,
+    topicDetailLoading,
+    getTopic,
     getLabel,
   };
 }

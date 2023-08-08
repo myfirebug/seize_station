@@ -46,6 +46,12 @@ const routerDatas: IRoute[] = [
         auth: false,
       },
       {
+        path: "/topic/:id",
+        title: "详情",
+        modulePath: "default/web/topic",
+        auth: false,
+      },
+      {
         path: "*",
         title: "404",
         modulePath: "default/web/notFound",

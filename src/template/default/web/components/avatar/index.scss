@@ -1,0 +1,23 @@
+@include b(avatar) {
+  border-radius: 3px;
+  overflow: hidden;
+  @include e(default) {
+    width: 40px;
+    height: 40px;
+  }
+  @include e(large) {
+    width: 48px;
+    height: 48px;
+  }
+  @include e(small) {
+    width: 30px;
+    height: 30px;
+  }
+  @include when(round) {
+    border-radius: 50%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

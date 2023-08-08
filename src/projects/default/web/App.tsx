@@ -7,17 +7,15 @@ import "./index.scss";
 
 function App() {
   return (
-    <>
-      <Layout
-        className="cms-layout-default"
-        Header={<Header />}
-        Footer={<Footer />}
-        paddingTop="50px"
-        mainMinHeight="calc(100vh - 107px)"
-      >
-        <Routes />
-      </Layout>
-    </>
+    <Layout
+      className="cms-layout-default"
+      Header={<Header />}
+      Footer={<Footer />}
+      paddingTop="50px"
+      mainMinHeight="calc(100vh - 107px)"
+    >
+      <Routes />
+    </Layout>
   );
 }
 

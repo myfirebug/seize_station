@@ -5,15 +5,14 @@ import Topics from "./components/topics";
 // 用户
 import User from "./components/user";
 import { NoData } from "@src/components";
-import "./index.scss";
 
 const Home = () => {
   return (
-    <div className="cms-home">
-      <div className="cms-home__left">
+    <div className="cms-layout__center">
+      <div className="cms-layout__left">
         <Topics />
       </div>
-      <div className="cms-home__right">
+      <div className="cms-layout__right">
         <User />
         <Module title="无人回复的话题" style={{ marginTop: "15px" }}>
           <NoData
