@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { IRepliyItem } from "@service/index";
-import { timeAgo } from "@src/utils";
+import { timeUtil } from "@src/utils";
 import { Link } from "react-router-dom";
 import Module from "../../components/module";
 // 头像
@@ -16,7 +16,7 @@ const Reply: FC<IReply> = ({ replies }) => {
     <Module
       className="cms-reply"
       style={{ marginTop: "15px" }}
-      title={`${replies.length}回复`}
+      title={`${replies.length}　回复`}
     >
       {replies.map((item, index) => (
         <div className="cms-reply__item" key={item.id}>
@@ -31,9 +31,9 @@ const Reply: FC<IReply> = ({ replies }) => {
                 <Link to={`/user/${item.author.loginname}`}>
                   {item.author.loginname}
                 </Link>
-                <span className="reply-time">{`${index + 1}楼 • ${timeAgo(
-                  item.create_at
-                )}`}</span>
+                <span className="reply-time">{`${
+                  index + 1
+                }楼 • ${timeUtil.timeAgo(item.create_at)}`}</span>
               </div>
               <div
                 dangerouslySetInnerHTML={{

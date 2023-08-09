@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useTopic } from "@core/hook";
 import Module from "../components/module";
-import { timeAgo } from "@src/utils";
+import { timeUtil } from "@src/utils";
 import "./index.scss";
 import { Link } from "react-router-dom";
 // 回复列表
@@ -26,7 +26,7 @@ const Topic: FC<ITopic> = () => {
           <div className="cms-topic__header">
             <h1 className="title">{topicDetail?.title}</h1>
             <div className="labels">
-              <span>发布于 {timeAgo(topicDetail.create_at)}</span>
+              <span>发布于 {timeUtil.timeAgo(topicDetail.create_at)}</span>
               <span>
                 作者
                 <Link to={`/user/${topicDetail.author.loginname}`}>

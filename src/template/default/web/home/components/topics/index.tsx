@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Module from "../../../components/module";
-import { timeAgo } from "@src/utils";
+import { timeUtil } from "@src/utils";
 import { useTopic } from "@core/hook";
 import { Loading } from "@src/components";
 import "./index.scss";
@@ -88,7 +88,9 @@ const Topics: FC<ITopics> = () => {
           <Link className="title" to={`/topic/${item.id}`}>
             {item.title}
           </Link>
-          <span className="create-time">{timeAgo(item.create_at)}</span>
+          <span className="create-time">
+            {timeUtil.timeAgo(item.create_at)}
+          </span>
         </div>
       ))}
     </Module>
