@@ -1,0 +1,51 @@
+@include b(topic) {
+  @include e(header) {
+    padding: 20px 10px;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.25s ease 0s;
+    .title {
+      margin: 0;
+      font-size: 24px;
+    }
+    .labels {
+      padding-top: 5px;
+      font-size: 12px;
+      color: var(--dark-gray-font-color);
+      span {
+        position: relative;
+        &::before {
+          content: "•";
+          padding: 0 5px;
+        }
+      }
+      a {
+        color: var(--primary-color);
+      }
+    }
+  }
+  @include e(body) {
+    padding: 20px;
+    line-height: 1.5;
+    img {
+      max-width: 100%;
+    }
+    a {
+      color: var(--primary-color);
+    }
+  }
+
+  .user_card {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: var(--dark-gray-font-color);
+    text-decoration: none;
+    transition: all 0.25s ease 0s;
+    &:hover {
+      color: var(--primary-color);
+    }
+    .cms-avatar {
+      margin-right: 10px;
+    }
+  }
+}

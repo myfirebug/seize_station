@@ -1,10 +1,13 @@
 import React from "react";
+import Routes from "./router";
+import { Layout } from "@src/components";
+import "./index.scss";
 
 function App() {
   return (
-    <div>
-      <h1>default-mobile</h1>
-    </div>
+    <Layout>
+      <Routes />
+    </Layout>
   );
 }
 
