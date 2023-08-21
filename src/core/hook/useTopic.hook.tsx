@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { ITopicItem, API, ITab, ITopicDetail } from "@service/index";
+import { browserUtil } from "@src/utils";
 export interface ITopicsParams {
   // 页数
   page: number;
@@ -9,24 +10,29 @@ export interface ITopicsParams {
   limit: number;
   //  当为 false 时，不渲染。默认为 true
   mdrender?: boolean;
+  // 是否需要更新
+  update?: string | number;
 }
 export function useTopic() {
   // 获取所有主题数据
   const [topics, setTopics] = useState<ITopicItem[]>([]);
+  // 是否还有数据
+  const [isMore, setIsMore] = useState<boolean>(true);
   // 是否处理loading状态
   const [topicsLoading, setTopicsLoading] = useState<boolean>(false);
   // 获取主题列表数据
-  const getTopics = useCallback((params: ITopicsParams) => {
+  const getTopics = useCallback(async (params: ITopicsParams) => {
     setTopicsLoading(true);
-    API.topicService
-      .getTopics(params)
-      .then((data) => {
-        setTopics(data);
-        setTopicsLoading(false);
-      })
-      .catch(() => {
-        setTopicsLoading(false);
-      });
+    const data = await API.topicService.getTopics(params);
+    if (browserUtil.isMobile()) {
+      params.page === 1
+        ? setTopics(data)
+        : setTopics((state) => [...state, ...data]);
+    } else {
+      setTopics(data);
+    }
+    setTopicsLoading(false);
+    setIsMore(data && data.length ? true : false);
   }, []);
 
   const getLabel = useCallback((good: boolean, tab: ITab, top: boolean) => {
@@ -95,5 +101,6 @@ export function useTopic() {
     topicDetailLoading,
     getTopic,
     getLabel,
+    isMore,
   };
 }

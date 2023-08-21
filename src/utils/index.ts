@@ -6,3 +6,4 @@ export * from "./storage.util";
 export * from "./type.util";
 export * from "./url.util";
 export * from "./time.util";
+export * from "./dom.util";

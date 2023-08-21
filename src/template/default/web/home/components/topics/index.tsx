@@ -5,8 +5,8 @@ import { timeUtil } from "@src/utils";
 import { useTopic } from "@core/hook";
 import { Loading } from "@src/components";
 import "./index.scss";
-import { ITab } from "@src/service";
 import { NoData } from "@src/components";
+import { ITab } from "@src/service";
 interface ITopics {}
 
 const Topics: FC<ITopics> = () => {
@@ -37,15 +37,15 @@ const Topics: FC<ITopics> = () => {
       value: "dev",
     },
   ]);
-  const [currentTab, setCurrentTab] = useState<ITab>("");
+  const [current, setCurrent] = useState<ITab>("");
 
   useEffect(() => {
     getTopics({
       page: 1,
-      tab: currentTab,
-      limit: 40,
+      limit: 20,
+      tab: current,
     });
-  }, [getTopics, currentTab]);
+  }, [getTopics, current]);
   return (
     <Module
       className="cms-topics"
@@ -54,9 +54,9 @@ const Topics: FC<ITopics> = () => {
           {tabs.map((item) => (
             <span
               className={`cms-tab__item ${
-                currentTab === item.value ? "is-active" : ""
+                current === item.value ? "is-active" : ""
               }`}
-              onClick={() => setCurrentTab(item.value as ITab)}
+              onClick={() => setCurrent(item.value as ITab)}
               key={item.value}
             >
               {item.name}
@@ -77,7 +77,7 @@ const Topics: FC<ITopics> = () => {
             <span className="replies">{item.reply_count}</span>
             <span className="visits">{item.visit_count}</span>
           </div>
-          {item.good || item.top || !currentTab ? (
+          {item.good || item.top || !current ? (
             <span
               className={`label ${item.good || item.top ? "is-active" : ""}`}
             >

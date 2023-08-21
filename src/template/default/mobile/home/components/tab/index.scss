@@ -1,0 +1,23 @@
+@include b(tab) {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 48px;
+  z-index: 101;
+  display: flex;
+  justify-content: space-between;
+  height: 48px;
+  line-height: 48px;
+  background-color: var(--primary-color);
+  @include e(item) {
+    padding: 0 10px;
+    color: var(--white);
+    transition: all 0.25s ease 0s;
+    cursor: pointer;
+    &:hover,
+    &.is-active {
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+}

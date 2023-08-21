@@ -1,22 +1,15 @@
 @include b(header) {
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
-  z-index: 100;
-  height: 50px;
+  z-index: 500;
+  height: 48px;
   padding: 0 20px;
-  line-height: 50px;
+  line-height: 48px;
   background-color: var(--primary-color);
-  @include e(content) {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 1400px;
-    min-width: 960px;
-    height: 100%;
-    margin: 0 auto;
-  }
   @include e(left) {
     display: flex;
     align-items: center;
