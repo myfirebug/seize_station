@@ -8,6 +8,7 @@
 
 # 目录结构
 
+```
 ## config 开发、打包脚本
 
 ## dist 打包结果文件
@@ -26,7 +27,6 @@
 
 ## src/projects 项目文件集合
 
-```
 default                 // 默认项目
 |---mobile              // 默认项目中的移动端
     |---router          // 路由
@@ -42,63 +42,59 @@ default                 // 默认项目
     |---App.tsx         // 入口组件
     |---index.scss      // 项目公用项目
     |---main.tsx        // 入口
-```
 
 ## service 封装的请求
 
-```
-|---fetch.ts                        // 封装的公用请求
-|---index.ts                        // 向外暴露的
-|---api                             // API集合
-    |---index.ts
-    |---topic.api.ts                // 主题相关API集合
-|---interface                       // 接口集合
-    |---index.ts
-    |---topic.interface.ts          // 主题相关接口集合
-|---module                          // 模块集合
-    |---index.ts
-    |---topic.service.ts            // 模块接口集合
-```
+|---fetch.ts // 封装的公用请求
+|---index.ts // 向外暴露的
+|---api // API 集合
+|---index.ts
+|---topic.api.ts // 主题相关 API 集合
+|---interface // 接口集合
+|---index.ts
+|---topic.interface.ts // 主题相关接口集合
+|---module // 模块集合
+|---index.ts
+|---topic.service.ts // 模块接口集合
 
 ## template 集合
 
-```
-└─default                               // 默认站点源码
-    ├─mobile                            // 移动端
-    │  ├─about                          // 关于页面
-    │  ├─components                     // 公用组件
-    │  ├─home                           // 首页
-    │  ├─layout                         // 框架
-    │  ├─login                          // 登录
-    │  ├─my                             // 我的
-    │  ├─notFound                       // 404
-    │  └─topic                          // 详情
-    └─web                               // web端
-    │  ├─about                          // 关于页面
-    │  ├─components                     // 公用组件
-    │  ├─home                           // 首页
-    │  ├─layout                         // 框架
-    │  ├─login                          // 登录
-    │  ├─my                             // 我的
-    │  ├─notFound                       // 404
-    │  └─topic                          // 详情
-```
+└─default // 默认站点源码
+├─mobile // 移动端
+│ ├─about // 关于页面
+│ ├─components // 公用组件
+│ ├─home // 首页
+│ ├─layout // 框架
+│ ├─login // 登录
+│ ├─my // 我的
+│ ├─notFound // 404
+│ └─topic // 详情
+└─web // web 端
+│ ├─about // 关于页面
+│ ├─components // 公用组件
+│ ├─home // 首页
+│ ├─layout // 框架
+│ ├─login // 登录
+│ ├─my // 我的
+│ ├─notFound // 404
+│ └─topic // 详情
+
 
 ## types 全局类型文件声明
 
 ## utils 公用工具
 
-```
-browser.util.ts         // 浏览器
-dom.util.ts             // DOM
+browser.util.ts // 浏览器
+dom.util.ts // DOM
 index.ts
-number.util.ts          // 数据
-other.util.ts           // 其他
-storage.util.ts         // 缓存
-string.util.ts          // 字符
-time.util.ts            // 时间
-type.util.ts            // 判断
-url.util.ts             // url
+number.util.ts // 数据
+other.util.ts // 其他
+storage.util.ts // 缓存
+string.util.ts // 字符
+time.util.ts // 时间
+type.util.ts // 判断
+url.util.ts // url
+
 ```
 
 # git 提交格式 --> [类型][区域位置(可选)]: [描述]
