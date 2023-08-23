@@ -44,7 +44,13 @@ const Topics: FC<ITopics> = ({ topics, topicsLoading }) => {
               </span>
             ) : null}
           </div>
-          <Link className="bd" to={`/topic/${item.id}`}>
+          <Link
+            className="bd"
+            to={{
+              pathname: `/topic/${item.id}`,
+              search: `title=${item.title}`,
+            }}
+          >
             {item.title}
           </Link>
           <div className="ft">

@@ -1,18 +1,19 @@
 import React, { FC, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useSearchParams } from "react-router-dom";
 import { useTopic } from "@core/hook";
 import Module from "../components/module";
 import { timeUtil } from "@src/utils";
 import "./index.scss";
-import { Link } from "react-router-dom";
 // 回复列表
 import Reply from "./reply";
+import Loading from "@src/components/loading/loading";
 
 interface ITopic {}
 
 const Topic: FC<ITopic> = () => {
   const { id } = useParams();
-  const { getTopic, topicDetail, getLabel } = useTopic();
+  const { getTopic, topicDetail, getLabel, topicDetailLoading } = useTopic();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     getTopic(id as string);
@@ -20,14 +21,19 @@ const Topic: FC<ITopic> = () => {
   return (
     <>
       <Module className="cms-topic">
+        {topicDetailLoading ? <Loading type={1} text="加载中..." /> : null}
         <div className="cms-topic__header">
-          <h1 className="title">{topicDetail?.title}</h1>
+          <h1 className="title">
+            {topicDetail?.title || searchParams.get("title")}
+          </h1>
           <div className="labels">
-            <span>发布于 {timeUtil.timeAgo(topicDetail.create_at)}</span>
+            <span>
+              发布于 {timeUtil.timeAgo(topicDetail.create_at) || "--"}
+            </span>
             <span>
               作者
               <Link to={`/user/${topicDetail.author.loginname}`}>
-                {topicDetail.author.loginname}
+                {topicDetail.author.loginname || "--"}
               </Link>
             </span>
             <span> {topicDetail.visit_count} 次浏览</span>
