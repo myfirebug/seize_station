@@ -48,7 +48,6 @@ const Topics: FC<ITopics> = ({ topics, topicsLoading }) => {
             className="bd"
             to={{
               pathname: `/topic/${item.id}`,
-              search: `title=${item.title}`,
             }}
           >
             {item.title}
