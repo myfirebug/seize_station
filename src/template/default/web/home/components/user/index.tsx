@@ -7,7 +7,9 @@ interface IUser {}
 const User: FC<IUser> = () => {
   return (
     <Module className="cms-user">
-      <div className="button">登录</div>
+      <div className="button" data-sdk="login">
+        登录
+      </div>
       <div className="button">注册</div>
     </Module>
   );

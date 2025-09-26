@@ -22,5 +22,6 @@ interface Config {
 declare global {
   interface Window {
     CONFIG: Config;
+    SDK: any;
   }
 }
